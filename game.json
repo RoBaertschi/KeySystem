@@ -121,8 +121,8 @@
     {
       "b": 209,
       "disableInputWhenNotFocused": true,
-      "mangledName": "Unbenannte_32Szene",
-      "name": "Unbenannte Szene",
+      "mangledName": "Main_32Szene",
+      "name": "Main Szene",
       "oglFOV": 90,
       "oglZFar": 500,
       "oglZNear": 1,
@@ -132,7 +132,7 @@
       "title": "",
       "v": 209,
       "uiSettings": {
-        "grid": false,
+        "grid": true,
         "gridType": "rectangular",
         "gridWidth": 32,
         "gridHeight": 32,
@@ -140,7 +140,7 @@
         "gridOffsetY": 0,
         "gridColor": 10401023,
         "gridAlpha": 0.8,
-        "snap": false,
+        "snap": true,
         "zoomFactor": 1,
         "windowMask": false
       },
@@ -155,8 +155,8 @@
           "name": "Player",
           "persistentUuid": "c1ffc269-5901-41ee-9723-2e23cfd7b246",
           "width": 64,
-          "x": 654,
-          "y": 79,
+          "x": 640,
+          "y": 64,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -170,8 +170,8 @@
           "name": "Key",
           "persistentUuid": "658d44e7-4639-4ae0-b43c-937858068c48",
           "width": 64,
-          "x": 436,
-          "y": 357,
+          "x": 416,
+          "y": 192,
           "zOrder": 2,
           "numberProperties": [],
           "stringProperties": [],
@@ -185,8 +185,8 @@
           "name": "Wall",
           "persistentUuid": "eaf33f9f-7a32-4587-959a-6f1a1bf22276",
           "width": 64,
-          "x": 650,
-          "y": 280,
+          "x": 640,
+          "y": 256,
           "zOrder": 4,
           "numberProperties": [],
           "stringProperties": [],
@@ -200,8 +200,8 @@
           "name": "Door",
           "persistentUuid": "eef0a6ba-38ef-41a8-9953-db34d891def4",
           "width": 64,
-          "x": 650,
-          "y": 216,
+          "x": 640,
+          "y": 192,
           "zOrder": 5,
           "numberProperties": [],
           "stringProperties": [],
@@ -215,9 +215,25 @@
           "name": "Wall",
           "persistentUuid": "97224145-a65f-4f6d-bd87-f60f54bd2f54",
           "width": 0,
-          "x": 650,
-          "y": 152,
+          "x": 640,
+          "y": 128,
           "zOrder": 6,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 64,
+          "layer": "UI",
+          "locked": true,
+          "name": "Key",
+          "persistentUuid": "48d43c57-4989-4e0a-8fdb-5230313aef84",
+          "width": 64,
+          "x": 32,
+          "y": 32,
+          "zOrder": 2,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -781,6 +797,68 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "CentreCamera"
+              },
+              "parameters": [
+                "",
+                "Player",
+                "",
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Player",
+                "Keys",
+                ">",
+                "0"
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Layer"
+                  },
+                  "parameters": [
+                    "Key",
+                    "\"UI\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "Key",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "layers": [
@@ -804,6 +882,17 @@
               "width": 0
             }
           ],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 7984904,
+          "ambientLightColorG": 6043600,
+          "ambientLightColorR": 8006032,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "UI",
+          "visibility": true,
+          "cameras": [],
           "effects": []
         }
       ],
